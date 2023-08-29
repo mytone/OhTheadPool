@@ -1,0 +1,66 @@
+﻿@page "/"
+@using System.Threading
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+
+@code{
+
+    //nuget package
+    System.Threading.Timer threadTimer0,threadTimer1;
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ak0();
+        ak1();
+    }
+
+    /// <summary>
+    /// begin threading 
+    /// </summary>
+    private void ak0()
+    {
+        threadTimer0 = new System.Threading.Timer(new TimerCallback(akth0), null, Timeout.Infinite, 1000);  //begin
+        threadTimer0.Change(0,1000*60*5); //5 minutes
+    }
+
+    private void ak1()
+    {
+        threadTimer1 = new System.Threading.Timer(new TimerCallback(akth1), null, Timeout.Infinite, 1000);  //begin
+        threadTimer1.Change(0, 1000 * 60 * 5); //5 minutes
+    }
+
+    /// <summary>
+    /// threading body
+    /// </summary>
+    /// <param name="value"></param>
+    private void akth0(object value)
+    {
+        //.....
+    }
+
+    private void akth1(object value)
+    {
+        //.....
+    }
+
+    /// <summary>
+    /// stop threading
+    /// </summary>
+    private void akth0stop()
+    {
+        threadTimer0.Change(Timeout.Infinite, 1000);
+        threadTimer0.Dispose();
+    }
+
+    private void akth1stop()
+    {
+        threadTimer1.Change(Timeout.Infinite, 1000);
+        threadTimer1.Dispose();
+    }
+
+}
