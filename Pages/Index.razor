@@ -7,8 +7,13 @@ Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
 
+<div>@favpizza</div>
+<div><input @bind-value="favpizza" @bind-value:event="oninput" /></div>
+
 
 @code{
+
+    private string favpizza { get; set; } = "mm";
 
     //nuget package
     System.Threading.Timer threadTimer0,threadTimer1;
