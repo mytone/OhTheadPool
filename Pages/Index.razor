@@ -8,7 +8,7 @@ Welcome to your new app.
 <SurveyPrompt Title="How is Blazor working for you?" />
 
 <div>@favpizza</div>
-<div><input @bind-value="favpizza" @bind-value:event="oninput" /></div>
+<div><input @bind="favpizza" @bind:event="oninput" /></div>
 
 
 @code{
